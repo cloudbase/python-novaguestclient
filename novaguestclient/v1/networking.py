@@ -32,4 +32,4 @@ class NetworkingManager(base.BaseManager):
             '/networking/%s/actions' % instance_id,
             json={'apply-networking': None}).json()
         validate_data = data["apply-networking"]
-        return validate_data.get("valid"), validate_data.get("message")
+        return validate_data.get("success"), validate_data.get("message")

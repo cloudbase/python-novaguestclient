@@ -14,7 +14,7 @@
 # limitations under the License.
 
 
-class CoriolisException(Exception):
+class NovaGuestAgentException(Exception):
     pass
 
 
@@ -47,13 +47,13 @@ class HTTPAuthError(HTTPError):
         super(HTTPAuthError, self).__init__(message, status_code)
 
 
-class EndpointConnectionValidationFailed(CoriolisException):
+class EndpointConnectionValidationFailed(NovaGuestAgentException):
     def __init__(self, validation_message):
         super(EndpointConnectionValidationFailed, self).__init__(
             "Connection validation failed. Details: %s" % validation_message)
 
 
-class NoUniqueEndpointNameMatch(CoriolisException):
+class NoUniqueEndpointNameMatch(NovaGuestAgentException):
     """Raised for multiple existing endpoint names found"""
 
     def __init__(self, cli_arg):
@@ -63,7 +63,7 @@ class NoUniqueEndpointNameMatch(CoriolisException):
                 cli_arg))
 
 
-class EndpointIDNotFound(CoriolisException):
+class EndpointIDNotFound(NovaGuestAgentException):
     """Raised when couldn't find endpoint ID that matches endpoint name"""
 
     def __init__(self, cli_arg):
@@ -71,7 +71,7 @@ class EndpointIDNotFound(CoriolisException):
             "No endpoint found for '%s'" % cli_arg)
 
 
-class LoggingEndpointNotFound(CoriolisException):
+class LoggingEndpointNotFound(NovaGuestAgentException):
     """Raised when logging endpoint could not be found in service catalogue"""
 
     def __init__(self, *args, **kw):
