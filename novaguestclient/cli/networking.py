@@ -32,7 +32,7 @@ class Networking(command.Command):
     """validates an edpoint's connection"""
 
     def get_parser(self, prog_name):
-        parser = super().get_parser(prog_name)
+        parser = super(Networking, self).get_parser(prog_name)
         parser.add_argument('instance_id', help='The instance id')
         return parser
 

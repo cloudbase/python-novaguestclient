@@ -25,7 +25,7 @@ class NetworkingManager(base.BaseManager):
     resource_class = Networking
 
     def __init__(self, api):
-        super().__init__(api)
+        super(NetworkingManager, self).__init__(api)
 
     def apply_networking(self, instance_id):
         data = self.client.post(
